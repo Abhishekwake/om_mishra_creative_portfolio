@@ -4,143 +4,106 @@ import { useState } from "react";
 
 const services = [
   {
-    title: "Cinematic Videography",
+    title: "CINEMATIC VIDEOGRAPHY",
     items: ["Brand films", "Automotive shoots", "Commercials", "Reels"],
   },
   {
-    title: "Post Production",
+    title: "POST PRODUCTION",
     items: ["Professional editing", "Color grading", "Sound design", "Motion graphics"],
   },
   {
-    title: "Automotive Films",
+    title: "AUTOMOTIVE FILMS",
     items: ["Cars & bikes", "Restoration films", "Cinematic reels", "Launch videos"],
   },
   {
-    title: "Branding",
+    title: "BRANDING",
     items: ["Brand strategy & identity", "Visual style guides", "Typography & color systems", "Brand storytelling"],
   },
 ];
 
 export default function Services() {
-  const [openIndex, setOpenIndex] = useState(null);
-  const [hoverIndex, setHoverIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="min-h-screen px-6 md:px-16 flex items-center">
-      <div className="max-w-4xl w-full mx-auto flex">
+    <section className="min-h-screen px-6 md:px-16 flex items-center ]">
+      <div className="max-w-6xl w-full mx-auto flex">
         
-        {/* Left Column - Services Content */}
         <div className="w-full md:w-1/2">
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl font-heading mb-6 text-white-800">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-heading font-bold mb-6 text-white tracking-wide">
             WHAT I CAN DO FOR YOU
           </h2>
 
           {/* Description */}
-          <p className="text-base text-white-600 max-w-xl mb-12 leading-relaxed">
-            I help brands grow through high-quality video production, post-production,
-            and digital content crafted for performance, emotion, and engagement.
+          <p className="text-base md:text-xl text-[#ececeb] max-w-xl mb-12 leading-relaxed font-sans">
+            I help brands grow through high-quality video production,<br />
+            editing, and digital content designed for performance and<br />
+            engagement.
           </p>
 
           {/* Services List */}
-          <ul className="space-y-2 max-w-xl">
+          <ul className="space-y-0 max-w-xl">
             {services.map((service, index) => {
               const isOpen = openIndex === index;
-              const isHovered = hoverIndex === index;
 
               return (
                 <li
                   key={index}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  onMouseEnter={() => setHoverIndex(index)}
-                  onMouseLeave={() => setHoverIndex(null)}
-                  className="relative overflow-hidden cursor-pointer"
+                  className="group relative cursor-pointer transition-all duration-300"
                 >
-                  {/* Animated background on hover/click */}
+                  {/* Service Header */}
                   <div className={`
-                    absolute inset-0 bg-[#d0ff71] transition-all duration-300
-                    ${isOpen ? "opacity-100" : "opacity-0"}
-                    ${isHovered ? "opacity-30" : ""}
-                  `} />
-                  
-                  <div className={`
-                    relative z-10 border-b border-gray-200 py-6 px-4
+                    py-6 border-b border-[#262626]
                     transition-all duration-300
-                    ${isOpen ? "text-black" : "text-gray-700 hover:text-gray-900"}
+                    ${isOpen ? "bg-[#d0ff71] text-black" : "bg-transparent text-white hover:bg-white/5"}
                   `}>
-                    {/* Service Header */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        {/* Number with custom styling */}
+                    <div className="flex items-center justify-between px-0">
+                      <div className="flex items-center gap-6">
+                        {/* Number */}
                         <span className={`
-                          text-lg font-mono transition-all duration-300
-                          ${isOpen ? "text-black font-bold" : "text-gray-400"}
+                          text-2xl md:text-4xl font-heading font-medium
+                          transition-all duration-300
+                          ${isOpen ? "text-black" : "text-[#d0ff71]"}
                         `}>
-                          0{index + 1}
+                          {index + 1}.
                         </span>
                         
                         {/* Service Title */}
-                        <span className="text-xl md:text-2xl font-medium">
+                        <span className="text-xl md:text-4xl font-heading font-medium tracking-wider">
                           {service.title}
                         </span>
                       </div>
 
-                      {/* Animated Arrow */}
-                      <div className="relative h-6 w-6">
-                        <span className={`
-                          absolute inset-0 flex items-center justify-center
-                          text-2xl transition-all duration-500
-                          ${isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"}
-                        `}>
-                          ↓
-                        </span>
-                        <span className={`
-                          absolute inset-0 flex items-center justify-center
-                          text-2xl transition-all duration-500
-                          ${isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0"}
-                        `}>
-                          ↓
-                        </span>
-                      </div>
+                      {/* Arrow with smooth animation */}
+                      <span className={`
+                        text-2xl transition-transform duration-500
+                        ${isOpen ? "rotate-180 text-black" : "rotate-0 text-white"}
+                      `}>
+                        ↓
+                      </span>
                     </div>
 
-                    {/* Expandable Content */}
-                    <div
-                      className={`
-                        overflow-hidden transition-all duration-500
-                        ${isOpen ? "max-h-96 opacity-100 mt-6" : "max-h-0 opacity-0"}
-                      `}
-                    >
-                      <ul className="space-y-4 text-base pl-10">
+                    {/* Expandable Content with smooth animation */}
+                    <div className={`
+                      overflow-hidden transition-all duration-500
+                      ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+                    `}>
+                      <div className="mt-8 space-y-4 pl-12">
                         {service.items.map((item, itemIndex) => (
-                          <li
+                          <div
                             key={itemIndex}
-                            className="flex items-center gap-4 group/item"
+                            className="flex items-center gap-4 text-black font-sans"
                           >
-                            {/* Animated bullet */}
-                            <div className="relative">
-                              <div className={`
-                                h-2 w-2 rounded-full transition-all duration-300
-                                ${isOpen ? "bg-black scale-100" : "bg-gray-400 scale-0"}
-                              `} />
-                              <div className={`
-                                absolute inset-0 h-2 w-2 rounded-full
-                                bg-[#d0ff71] transition-all duration-300
-                                ${isOpen ? "scale-0" : "scale-100"}
-                              `} />
-                            </div>
-                            
+                            {/* Bullet */}
+                            <div className="h-1.5 w-1.5 rounded-full bg-black flex-shrink-0" />
                             {/* Item text */}
-                            <span className={`
-                              transition-all duration-300
-                              ${isOpen ? "text-gray-800" : "text-gray-600"}
-                              group-hover/item:translate-x-2
-                            `}>
+                            <span className="text-base md:text-lg">
                               {item}
                             </span>
-                          </li>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </li>

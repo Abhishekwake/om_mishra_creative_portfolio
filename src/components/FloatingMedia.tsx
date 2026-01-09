@@ -23,7 +23,7 @@ const FloatingMedia = () => {
    * Center → Right while scrolling
    */
   const x = useTransform(scrollYProgress, [0, 0.4], [0, 380]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 420]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-10">
@@ -70,7 +70,7 @@ const FloatingMedia = () => {
             "
           >
             <Image
-              src="/Avatar.webp"  // Image 2 (back side)
+              src="/Avatar2.webp"  // Image 2 (back side)
               alt="Back"
               fill
               className="object-cover"

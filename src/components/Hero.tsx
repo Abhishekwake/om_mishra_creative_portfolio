@@ -27,6 +27,7 @@ const Hero = () => {
             flex flex-col gap-1
             font-heading
             text-center md:text-left
+    
           "
         >
           <p className="text-2xl sm:text-3xl md:text-3xl text-heading tracking-tighter uppercase ml-1">
