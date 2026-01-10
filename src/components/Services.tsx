@@ -22,10 +22,10 @@ const services = [
 ];
 
 export default function Services() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="min-h-screen px-6 md:px-16 flex items-center ]">
+    <section className="min-h-screen px-6 md:px-16 flex items-center">
       <div className="max-w-6xl w-full mx-auto flex">
         
         <div className="w-full md:w-1/2">

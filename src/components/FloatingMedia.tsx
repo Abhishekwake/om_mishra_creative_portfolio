@@ -22,12 +22,12 @@ const FloatingMedia = () => {
    * 📍 POSITIONING
    * Center → Right while scrolling
    */
-  const x = useTransform(scrollYProgress, [0, 0.4], [0, 380]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const x = useTransform(scrollYProgress, [0, 0.4], ["0px", "380px"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0px", "0px"]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-10">
-      <div className="relative h-full w-full perspective-[1400px]">
+      <div className="relative h-full w-full">
         <motion.div
           style={{ rotateY, x, y }}
           className="
@@ -35,8 +35,10 @@ const FloatingMedia = () => {
             top-[28%]
             left-1/2
             -translate-x-1/2
-            h-[450px] w-[300px]
-            lg:h-[480px] lg:w-[330px]
+            h-[280px] w-[180px]
+            sm:h-[350px] sm:w-[230px]
+            md:h-[380px] md:w-[260px]
+            lg:h-[450px] lg:w-[300px]
             rounded-3xl
             shadow-2xl
             will-change-transform
@@ -65,7 +67,7 @@ const FloatingMedia = () => {
             className="
               absolute inset-0
               rounded-3xl overflow-hidden
-              rotate-y-180
+              [transform:rotateY(180deg)]
               [backface-visibility:hidden]
             "
           >
